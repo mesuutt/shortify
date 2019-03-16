@@ -1,4 +1,6 @@
 defmodule Core.Ecto.HashId do
+  # https://medium.freecodecamp.org/how-to-write-a-super-fast-link-shortener-with-elixir-phoenix-and-mnesia-70ffa1564b3c
+
   @behaviour Ecto.Type
   @hash_id_length 8
   # ======================= #

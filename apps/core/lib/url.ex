@@ -2,9 +2,6 @@ defmodule Core.URL do
   use Ecto.Schema
   import Ecto.Changeset
 
-  # import only Ecto.Query.from/2
-  import Ecto.Query # , only: [from: 2]
-
   alias Core.Ecto.HashId
   alias Core.Repo
 
@@ -19,13 +16,14 @@ defmodule Core.URL do
     url
     |> cast(params, [:url, :hash])
     |> validate_required([:url])
+    |> unique_constraint(:hash)
+
   end
 
   def add(url, hash \\ nil) do
-    url =
       %Core.URL{}
       |> Core.URL.changeset(%{url: url, hash: hash})
-      |> Repo.insert!()
+      |> Repo.insert()
   end
 
   def get(hash) do

@@ -10,6 +10,7 @@ defmodule Api.Application do
     children = [
       # Starts a worker by calling: Api.Worker.start_link(arg)
       # {Api.Worker, arg}
+      Plug.Cowboy.child_spec(scheme: :http, plug: Api.Router, options: [port: 3031])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
