@@ -1,11 +1,17 @@
 defmodule Shortify.MixProject do
   use Mix.Project
 
+  @aliases [
+    "ecto.reset": ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate"],
+    "test.once": ["ecto.reset", "test"],
+  ]
+
   def project do
     [
       apps_path: "apps",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: @aliases
     ]
   end
 
