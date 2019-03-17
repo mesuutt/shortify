@@ -25,7 +25,7 @@ defmodule Web.Router do
     Web.add_url(conn)
   end
 
-  def not_found(conn, _) do
-    send_resp(conn, 404, "Not Found")
+  match _ do
+    conn |> send_resp(400, "")
   end
 end
