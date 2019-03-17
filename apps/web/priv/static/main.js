@@ -13,7 +13,6 @@ window.onload = function (ev) {
 
     urlInput.addEventListener('keypress', function (event) {
         var code = event.which || event.keyCode;
-
         if (code == 13) {
             var url = event.target.value;
             if (!isValidUrl(url)) return;
