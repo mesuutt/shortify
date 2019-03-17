@@ -13,11 +13,7 @@ defmodule Api.Router do
     Api.add_url(conn)
   end
 
-  post _ do
-    conn |> send_resp(400, "")
-  end
-
-  get _ do
+  match _ do
     conn |> send_resp(400, "")
   end
 end
