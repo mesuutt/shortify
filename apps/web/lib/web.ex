@@ -55,11 +55,11 @@ defmodule Web do
   end
 
   defp build_short_url(conn, url_map) do
-    scheme = Atom.to_string(conn.scheme)
-    host = conn.host
-    port = Integer.to_string(conn.port)
+    # scheme = Atom.to_string(conn.scheme)
+    # host = conn.host
+    # port = Integer.to_string(conn.port)
+    base_url = Application.get_env(:web, :base_url)
     hash = Map.get(url_map, :hash)
-
-    "#{scheme}://#{host}:#{port}/#{hash}"
+    "#{base_url}/#{hash}"
   end
 end
