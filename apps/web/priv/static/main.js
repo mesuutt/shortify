@@ -7,7 +7,6 @@ window.onload = function (ev) {
     urlInput.addEventListener('paste', function (event) {
         var url = event.clipboardData.getData('text');
         if (!isValidUrl(url)) return;
-        console.log("aaa", url);
         shortify(url);
 
     });
@@ -18,8 +17,6 @@ window.onload = function (ev) {
         if (code == 13) {
             var url = event.target.value;
             if (!isValidUrl(url)) return;
-            console.log("bbb", url);
-
             shortify(url);
         }
     });
