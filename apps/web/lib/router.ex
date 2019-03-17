@@ -1,25 +1,28 @@
 defmodule Web.Router do
   # use Plug.Builder
   use Plug.Router
-  use Application
 
   plug(Plug.Logger)
+
   plug(Plug.Static,
     at: "/static",
     from: {:web, "/priv/static"}
   )
+  plug(Plug.Parsers, parsers: [:json, :urlencoded], json_decoder: Poison)
+
   plug(:match)
   plug(:dispatch)
-  plug(:not_found)
 
   get "/:hash" do
     Web.redirect_or_404(conn, hash)
   end
 
   get "/" do
-    conn
-    |> put_resp_header("content-type", "text/html; charset=utf-8")
-    |> Plug.Conn.send_file(200, Application.app_dir(:web, "/priv/static/index.html"))
+    Web.render_homepage(conn)
+  end
+
+  post "/urls" do
+    Web.add_url(conn)
   end
 
   def not_found(conn, _) do

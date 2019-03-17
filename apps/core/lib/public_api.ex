@@ -6,6 +6,7 @@ defmodule Core.Public do
         |> Map.from_struct()
         |> Map.take(Core.URL.__schema__(:fields))
         |> ok_tuple
+
       {:error, changeset} ->
         {:error, "Error while adding url"}
     end
@@ -13,7 +14,8 @@ defmodule Core.Public do
 
   def get_url(hash) do
     case Core.URL.get(hash) do
-      nil -> {:error, "Error while getting url"}
+      nil ->
+        {:error, "Error while getting url"}
       changeset ->
         changeset
         |> Map.from_struct()

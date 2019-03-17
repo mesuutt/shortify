@@ -3,6 +3,10 @@
     <title> Short</title>
     <link rel="stylesheet" href="/static/main.css">
     <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+    <script>
+        var API_BASE_URL = "<%= template_context.api_url %>";
+    </script>
+    <script src="/static/main.js"></script>
 </head>
 <body>
 <div class="Wrapper">
@@ -12,6 +16,5 @@
         <label for="destinationUrl" class="Input-label">Paste link and press Enter</label>
     </div>
 </div>
-<script src="/static/main.js"></script>
 </body>
 </html>
