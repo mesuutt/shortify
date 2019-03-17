@@ -30,19 +30,9 @@ defmodule Web do
   end
 
   def render_homepage(conn) do
-    template = Web.main_page_html(conn.assigns)
-    # template_file = Application.app_dir(:web, "/priv/static/index.html")
     conn
     |> put_resp_header("content-type", "text/html; charset=utf-8")
-    |> Plug.Conn.send_resp(200, template)
-  end
-
-  EEx.function_from_file(:def, :main_page_html, "lib/templates/index.eex", [:assigns])
-
-  defp template_context do
-    %{
-      api_url: "http://localhost:3031/urls"
-    }
+    |> Plug.Conn.send_file(200, Application.app_dir(:web, "/priv/static/index.html"))
   end
 
   def add_url(conn) do
