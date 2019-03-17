@@ -3,7 +3,7 @@ defmodule Shortify.MixProject do
 
   @aliases [
     "ecto.reset": ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate"],
-    "test.once": ["ecto.reset", "test"],
+    "test.once": ["ecto.reset", "test"]
   ]
 
   def project do

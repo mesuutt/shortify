@@ -7,7 +7,7 @@ defmodule Core.URL do
 
   @primary_key {:hash, HashId, [autogenerate: true]}
   schema "urls" do
-    field :url, :string
+    field(:url, :string)
 
     timestamps()
   end
@@ -17,13 +17,12 @@ defmodule Core.URL do
     |> cast(params, [:url, :hash])
     |> validate_required([:url])
     |> unique_constraint(:hash)
-
   end
 
   def add(url, hash \\ nil) do
-      %Core.URL{}
-      |> Core.URL.changeset(%{url: url, hash: hash})
-      |> Repo.insert()
+    %Core.URL{}
+    |> Core.URL.changeset(%{url: url, hash: hash})
+    |> Repo.insert()
   end
 
   def get(hash) do

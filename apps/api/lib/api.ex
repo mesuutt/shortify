@@ -18,7 +18,10 @@ defmodule Api do
       {:error, changeset} ->
         conn
         |> put_resp_content_type("application/json")
-        |> send_resp(400, Poison.encode!(%{"error_message" => "URL with this name already exist"}))
+        |> send_resp(
+          400,
+          Poison.encode!(%{"error_message" => "URL with this name already exist"})
+        )
     end
   end
 end

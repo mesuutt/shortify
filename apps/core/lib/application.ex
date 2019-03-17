@@ -8,7 +8,7 @@ defmodule Core.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      Core.Repo,
+      Core.Repo
       # Starts a worker by calling: Core.Worker.start_link(arg)
       # {Core.Worker, arg}
     ]
