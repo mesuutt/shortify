@@ -7,7 +7,9 @@ defmodule Web do
     case Core.Public.get_url(hash) do
       {:ok, url_map} ->
         go_to_url(conn, url_map.url)
-      {:error, _}-> send_resp(conn, 404, "not found")
+
+      {:error, _} ->
+        send_resp(conn, 404, "not found")
     end
   end
 
@@ -41,16 +43,17 @@ defmodule Web do
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(
-             200,
-             Poison.encode!(%{"short_url" => build_short_url(conn, url_map)})
-           )
+          200,
+          Poison.encode!(%{"short_url" => build_short_url(conn, url_map)})
+        )
+
       {:error, message} ->
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(
-             400,
-             Poison.encode!(%{"error_message" => message})
-           )
+          400,
+          Poison.encode!(%{"error_message" => message})
+        )
     end
   end
 

@@ -16,6 +16,7 @@ defmodule Core.Public do
     case Core.URL.get(hash) do
       nil ->
         {:error, "Error while getting url"}
+
       changeset ->
         changeset
         |> Map.from_struct()

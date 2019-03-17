@@ -8,6 +8,7 @@ defmodule Web.Router do
     at: "/static",
     from: {:web, "/priv/static"}
   )
+
   plug(Plug.Parsers, parsers: [:json, :urlencoded], json_decoder: Poison)
 
   plug(:match)

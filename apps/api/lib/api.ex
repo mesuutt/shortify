@@ -6,11 +6,14 @@ defmodule Api do
       {:ok, url_map} ->
         conn
         |> put_resp_content_type("application/json")
-        |> send_resp(200, Poison.encode!(%{
-          "short_url" => build_short_url(conn, url_map),
-          "hash" => url_map.hash,
-          "destination" => url_map.url,
-        }))
+        |> send_resp(
+          200,
+          Poison.encode!(%{
+            "short_url" => build_short_url(conn, url_map),
+            "hash" => url_map.hash,
+            "destination" => url_map.url
+          })
+        )
 
       {:error, changeset} ->
         conn
@@ -28,5 +31,4 @@ defmodule Api do
 
     "#{base_url}/#{hash}"
   end
-
 end
