@@ -2,12 +2,12 @@ defmodule Api do
   import Plug.Conn
 
   def add_url(conn) do
-    case CorePublic.add_url(conn.params["url"], conn.params["hash"]) do
-      {:ok, changeset} ->
+    case Core.Public.add_url(conn.params["url"], conn.params["hash"]) do
+      {:ok, url_map} ->
         scheme = Atom.to_string(conn.scheme)
         host = conn.host
         port = Integer.to_string(conn.port)
-        hash = Map.get(changeset, :hash)
+        hash = Map.get(url_map, :hash)
 
         url = "#{scheme}://#{host}:#{port}/#{hash}"
 
