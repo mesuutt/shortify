@@ -6,6 +6,11 @@ defmodule Core.Repo do
   def init(_type, config) do
     # Reading DATABASE_URL on application start
     url = System.get_env("DATABASE_URL")
-    if url, do: {:ok, [url: url] ++ config}, else: {:ok, config}
+
+    unless url do
+      raise "set DATABASE_URL environment variable!"
+    end
+
+    config = if url, do: {:ok, [url: url] ++ config}, else: {:ok, config}
   end
 end
