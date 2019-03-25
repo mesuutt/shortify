@@ -40,7 +40,7 @@ defmodule Core.Ecto.HashId do
 
   @doc "Validate the given value as a string"
   def validate_hash_id(string) when is_binary(string), do: true
-  def validate_hash_id(other), do: false
+  def validate_hash_id(_), do: false
 
   @doc "Generates a HashId"
   @spec generate() :: String.t()

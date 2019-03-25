@@ -7,7 +7,7 @@ defmodule Core.Public do
         |> Map.take(Core.URL.__schema__(:fields))
         |> ok_tuple
 
-      {:error, changeset} ->
+      {:error, _} ->
         {:error, "Error while adding url"}
     end
   end

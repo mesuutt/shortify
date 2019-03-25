@@ -9,23 +9,23 @@ defmodule Api do
         |> send_resp(
           200,
           Poison.encode!(%{
-            "short_url" => build_short_url(conn, url_map),
+            "short_url" => build_short_url(url_map),
             "hash" => url_map.hash,
             "destination" => url_map.url
           })
         )
 
-      {:error, changeset} ->
+      {:error, _} ->
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(
           400,
-          Poison.encode!(%{"error_message" => "URL with this name already exist"})
+          Poison.encode!(%{"error_message" => "Error while adding url with alias: Maybe URL with this alias already exist"})
         )
     end
   end
 
-  defp build_short_url(conn, url_map) do
+  defp build_short_url(url_map) do
     base_url = Confex.get_env(:web, :base_url)
     hash = Map.get(url_map, :hash)
 

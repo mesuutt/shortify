@@ -3,6 +3,7 @@ defmodule Web do
   require EEx
   import Plug.Conn
 
+
   def redirect_or_404(conn, hash) do
     case Core.Public.get_url(hash) do
       {:ok, url_map} ->
@@ -44,7 +45,7 @@ defmodule Web do
         |> put_resp_content_type("application/json")
         |> send_resp(
           200,
-          Poison.encode!(%{"short_url" => build_short_url(conn, url_map)})
+          Poison.encode!(%{"short_url" => build_short_url(url_map)})
         )
 
       {:error, message} ->
@@ -57,7 +58,7 @@ defmodule Web do
     end
   end
 
-  defp build_short_url(conn, url_map) do
+  defp build_short_url(url_map) do
     base_url = Confex.get_env(:web, :base_url)
     hash = Map.get(url_map, :hash)
     "#{base_url}/#{hash}"

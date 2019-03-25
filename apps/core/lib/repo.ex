@@ -11,6 +11,6 @@ defmodule Core.Repo do
       raise "set DATABASE_URL environment variable!"
     end
 
-    config = if url, do: {:ok, [url: url] ++ config}, else: {:ok, config}
+    if url, do: {:ok, [url: url] ++ config}, else: {:ok, config}
   end
 end
