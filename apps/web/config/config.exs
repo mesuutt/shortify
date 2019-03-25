@@ -28,3 +28,7 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env()}.exs"
+
+config :web,
+       base_url: {:system, "WEB_BASE_URL", "curl.ist"},
+       port: {:system, :integer, "WEB_PORT", 4000}
