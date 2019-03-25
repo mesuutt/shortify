@@ -22,7 +22,8 @@ defmodule Shortify.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:distillery, "~> 2.0", runtime: false}
+      {:distillery, "~> 2.0", runtime: false},
+      {:confex, "~> 3.4"},
     ]
   end
 end

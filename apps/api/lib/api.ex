@@ -26,7 +26,7 @@ defmodule Api do
   end
 
   defp build_short_url(conn, url_map) do
-    base_url = Application.get_env(:web, :base_url)
+    base_url = Confex.get_env(:web, :base_url)
     hash = Map.get(url_map, :hash)
 
     "#{base_url}/#{hash}"

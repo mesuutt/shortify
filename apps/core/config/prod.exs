@@ -6,4 +6,4 @@ config :core, Core.Repo,
        pool_size: 10
 
 
-config :web, base_url: "${WEB_BASE_URL}"
+config :web, base_url: {:system, "WEB_BASE_URL", "curl.ist"}
