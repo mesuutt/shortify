@@ -28,7 +28,7 @@ defmodule Api.MixProject do
     [
       {:plug_cowboy, "~> 2.0"},
       {:poison, "~> 3.0"},
-      {:confex, "~> 3.4"},
+      {:confex, "~> 3.4"}
     ]
   end
 end

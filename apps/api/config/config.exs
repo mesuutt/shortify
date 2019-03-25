@@ -30,4 +30,4 @@ use Mix.Config
 #     import_config "#{Mix.env()}.exs"
 
 config :api,
-       port: {:system, "API_PORT", 4001}
+  port: {:system, "API_PORT", 4001}

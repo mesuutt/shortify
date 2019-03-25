@@ -20,7 +20,10 @@ defmodule Api do
         |> put_resp_content_type("application/json")
         |> send_resp(
           400,
-          Poison.encode!(%{"error_message" => "Error while adding url with alias: Maybe URL with this alias already exist"})
+          Poison.encode!(%{
+            "error_message" =>
+              "Error while adding url with alias: Maybe URL with this alias already exist"
+          })
         )
     end
   end

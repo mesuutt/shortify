@@ -3,7 +3,6 @@ defmodule Web do
   require EEx
   import Plug.Conn
 
-
   def redirect_or_404(conn, hash) do
     case Core.Public.get_url(hash) do
       {:ok, url_map} ->
