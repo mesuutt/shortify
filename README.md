@@ -1,4 +1,3 @@
 # Shortify
 
-**TODO: Add description**
-
+Another URL shortener written with elixir.
