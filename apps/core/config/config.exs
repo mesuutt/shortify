@@ -31,8 +31,5 @@ use Mix.Config
 
 config :core, ecto_repos: [Core.Repo]
 
-config :core, Core.Repo,
-  database: "shortify_#{Mix.env()}",
-  username: "postgres",
-  password: "12345",
-  hostname: "pgdb_10.docker.localhost"
+
+import_config "#{Mix.env}.exs"

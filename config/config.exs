@@ -19,4 +19,3 @@ import_config "../apps/*/config/config.exs"
 #       format: "$date $time [$level] $metadata$message\n",
 #       metadata: [:user_id]
 
-config :web, base_url: System.get_env("SHORTIFY_BASE_URL")
