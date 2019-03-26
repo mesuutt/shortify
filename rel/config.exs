@@ -39,7 +39,7 @@ environment :prod do
   set include_src: false
   set cookie: :"a^Ll$zL1mj!ls?*h~zb*vVt1(f$QZ?&qT3.VqSO~s:8|vlzCJOn`<<&W:}b~vgZf"
   set vm_args: "rel/vm.args"
-  set pre_start_hooks: "rel/hooks/pre_start"
+  # set pre_start_hooks: "rel/hooks/pre_start"
   set post_start_hooks: "rel/hooks/post_start"
 
 end
