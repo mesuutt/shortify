@@ -3,10 +3,25 @@ defmodule Web do
   require EEx
   import Plug.Conn
 
-  def redirect_or_404(conn, hash) do
-    case Core.Public.get_url(hash) do
+  def add_url(conn) do
+    case Core.Public.add_url(conn.params["url"]) do
       {:ok, url_map} ->
-        go_to_url(conn, url_map.url)
+        conn |> send_success_resp(url_map)
+
+      {:error, message} ->
+        conn
+        |> put_resp_content_type("application/json")
+        |> send_resp(
+             400,
+             Poison.encode!(%{"error_message" => message})
+           )
+    end
+  end
+
+  def redirect_or_404(conn, hash) do
+    case Core.Public.get_by_hash(hash) do
+      {:ok, url_map} ->
+        go_to_url(conn, url_map.destination)
 
       {:error, _} ->
         send_resp(conn, 404, "not found")
@@ -37,34 +52,22 @@ defmodule Web do
     |> Plug.Conn.send_file(200, Application.app_dir(:web, "/priv/static/index.html"))
   end
 
-  def add_url(conn) do
-    case Core.Public.add_url(conn.params["url"]) do
-      {:ok, url_map} ->
-        conn
-        |> put_resp_content_type("application/json")
-        |> send_resp(
-          200,
-          Poison.encode!(%{"short_url" => build_short_url(url_map)})
-        )
-
-      {:error, message} ->
-        conn
-        |> put_resp_content_type("application/json")
-        |> send_resp(
-          400,
-          Poison.encode!(%{"error_message" => message})
-        )
-    end
+  defp send_success_resp(conn, url_map) do
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(
+      200,
+      Poison.encode!(%{"short_url" => build_short_url(url_map.hash)})
+    )
   end
 
-  defp build_short_url(url_map) do
+  defp build_short_url(hash) do
     base_url = Confex.get_env(:web, :base_url)
 
     unless base_url do
       raise "set WEB_BASE_URL environment variable!"
     end
 
-    hash = Map.get(url_map, :hash)
     "#{base_url}/#{hash}"
   end
 end

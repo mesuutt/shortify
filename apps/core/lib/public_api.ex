@@ -12,8 +12,8 @@ defmodule Core.Public do
     end
   end
 
-  def get_url(hash) do
-    case Core.URL.get(hash) do
+  def get_by_hash(hash) do
+    case Core.URL.get_by_hash(hash) do
       nil ->
         {:error, "Error while getting url"}
 

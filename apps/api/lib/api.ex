@@ -11,7 +11,7 @@ defmodule Api do
           Poison.encode!(%{
             "short_url" => build_short_url(url_map),
             "hash" => url_map.hash,
-            "destination" => url_map.url
+            "destination" => url_map.destination
           })
         )
 
@@ -22,7 +22,7 @@ defmodule Api do
           400,
           Poison.encode!(%{
             "error_message" =>
-              "Error while adding url with alias: Maybe URL with this alias already exist"
+              "Error while adding url with hash: Maybe URL with this hash already exist"
           })
         )
     end

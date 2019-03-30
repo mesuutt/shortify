@@ -4,7 +4,7 @@ defmodule Core.Repo.Migrations.CreateUrlsTable do
   def change do
     create table(:urls) do
       add :hash, :string, primary_key: true
-      add :url, :text, null: false
+      add :destination, :text, null: false
 
       timestamps()
     end

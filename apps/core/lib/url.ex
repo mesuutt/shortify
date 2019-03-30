@@ -7,26 +7,26 @@ defmodule Core.URL do
 
   @primary_key {:hash, HashId, [autogenerate: true]}
   schema "urls" do
-    field(:url, :string)
-
+    field(:destination, :string)
     timestamps()
   end
 
-  def changeset(url, params \\ :empty) do
-    url
-    |> cast(params, [:url, :hash])
-    |> validate_required([:url])
+  def changeset(destination, params \\ :empty) do
+    destination
+    |> cast(params, [:destination, :hash])
+    |> validate_required([:destination])
     |> unique_constraint(:hash)
   end
 
-  def add(url, hash \\ nil) do
+  def add(destination, hash \\ nil) do
     %Core.URL{}
-    |> Core.URL.changeset(%{url: url, hash: hash})
+    |> Core.URL.changeset(%{destination: destination, hash: hash})
     |> Repo.insert()
   end
 
-  def get(hash) do
+  def get_by_hash(hash) do
     Repo.get_by(Core.URL, hash: "#{hash}")
     # Repo.get!(Api.Link, q)
   end
+
 end
