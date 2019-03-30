@@ -2,14 +2,14 @@ defmodule Api.Router do
   use Plug.Router
 
   plug(Plug.Logger)
-  # plug Plug.RequestId
 
   # Parsers plug must be before :match
   plug(Plug.Parsers, parsers: [:json, :urlencoded], json_decoder: Poison)
   plug(:match)
   plug(:dispatch)
 
-  post "/urls" do
+  post "/" do
+    # This is a simple project, so we can post to root url.
     Api.add_url(conn)
   end
 
