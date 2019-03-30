@@ -30,5 +30,5 @@ use Mix.Config
 #     import_config "#{Mix.env()}.exs"
 
 config :web,
-  base_url: {:system, "WEB_BASE_URL", "curl.ist"},
+  base_url: {:system, "WEB_BASE_URL"},
   port: {:system, :integer, "WEB_PORT", 4000}

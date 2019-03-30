@@ -59,6 +59,11 @@ defmodule Web do
 
   defp build_short_url(url_map) do
     base_url = Confex.get_env(:web, :base_url)
+
+    unless base_url do
+      raise "set WEB_BASE_URL environment variable!"
+    end
+
     hash = Map.get(url_map, :hash)
     "#{base_url}/#{hash}"
   end
