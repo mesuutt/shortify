@@ -12,9 +12,9 @@ defmodule Web do
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(
-             400,
-             Poison.encode!(%{"error_message" => message})
-           )
+          400,
+          Poison.encode!(%{"error_message" => message})
+        )
     end
   end
 
