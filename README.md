@@ -1,6 +1,6 @@
 # Shortify
 
-Yet another URL shortener written with elixir.
+Yet another URL shortener written in elixir.
 
 
 <details><summary>Running Docker Container</summary>
