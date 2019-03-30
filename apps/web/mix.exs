@@ -27,7 +27,8 @@ defmodule Web.MixProject do
   defp deps do
     [
       {:plug_cowboy, "~> 2.0"},
-      {:confex, "~> 3.4"}
+      {:confex, "~> 3.4"},
+      {:core, in_umbrella: true}
     ]
   end
 end
