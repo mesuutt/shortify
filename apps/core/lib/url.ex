@@ -26,7 +26,6 @@ defmodule Core.URL do
 
   def get_by_hash(hash) do
     Repo.get_by(Core.URL, hash: "#{hash}")
-    # Repo.get!(Api.Link, q)
   end
 
 end
