@@ -14,10 +14,37 @@
 
 <div class="Wrapper">
     <h1 class="Title">Simple link shortener!</h1>
-    <div class="Input">
-        <input type="url" id="destinationUrl" class="Input-text" placeholder="Paste link to shorten it">
+    <div class="container is-fluid">
+        <div class="level">
+            <div class="level-left level-item">
+                <input type="url" id="destinationUrl" class="input is-primary" placeholder="Shorten your link">
+            </div>
+            <div class="level-item level-right is-narrow" style="padding-left: 15px">
+                <button id="btnShortUrl" class="button is-primary is-medium" type="button">Shorten it!</button>
+                <button id="btnCopyUrl" class="button is-info is-medium" type="button" style="display:none;">Copy</button>
+            </div>
+        </div>
+        <div id="shortenedUrlsCon">
+
+        </div>
+        <div  id="shortenedUrlBoxTemplate" class="box" style="margin-top: 20px; display:none;">
+            <div class="level">
+                <div class="level-item level-left destinationUrl long-and-truncated">
+
+                </div>
+                <div class="level-item level-right" style="text-align:right;">
+                    <a href="" target="_blank" class="shortenedUrl"></a>
+                </div>
+                <div class="level-item level-right is-narrow" style="padding-left:20px">
+                    <button class="button is-info is-large btnCopy">Copy</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<input id="copyInput" style='display:none'>
+<script src="/static/cash.min.js"></script>
 <script src="/static/main.js"></script>
 </body>
 </html>

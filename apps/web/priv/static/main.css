@@ -1,33 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis");
-
-:root {
-    /* generic */
-    --gutterSm: 0.4rem;
-    --gutterMd: 0.8rem;
-    --gutterLg: 1.6rem;
-    --gutterXl: 2.4rem;
-    --gutterXx: 7.2rem;
-    --colorPrimary400: #7e57c2;
-    --colorPrimary600: #5e35b1;
-    --colorPrimary800: #4527a0;
-    --fontFamily: "Dosis", sans-serif;
-    --fontSizeSm: 1.2rem;
-    --fontSizeMd: 1.6rem;
-    --fontSizeLg: 2.1rem;
-    --fontSizeXl: 2.8rem;
-    --fontSizeXx: 3.6rem;
-    --lineHeightSm: 1.1;
-    --lineHeightMd: 1.8;
-    --transitionDuration: 300ms;
-    --transitionTF: cubic-bezier(0.645, 0.045, 0.355, 1);
-
-    /* floated labels */
-    --inputPaddingV: var(--gutterMd);
-    --inputPaddingH: var(--gutterLg);
-    --inputFontSize: var(--fontSizeLg);
-    --inputLineHeight: var(--lineHeightMd);
-}
-
 *,
 *::before,
 *::after {
@@ -45,11 +16,11 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    color: #455a64;
+    color: #fff;
     background-color: #7e57c2;
-    font-family: var(--fontFamily);
-    font-size: var(--fontSizeMd);
-    line-height: var(--lineHeightMd);
+    font-family: "Dosis", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
 }
 
 .Wrapper {
@@ -58,40 +29,49 @@ body {
 }
 
 .Title {
-    margin: 0 0 var(--gutterXx) 0;
+    margin: 0 0 7.2rem 0;
     padding: 0;
     color: #fff;
-    font-size: var(--fontSizeXx);
+    font-size: 3.6rem;
     font-weight: 400;
-    line-height: var(--lineHeightSm);
+    line-height: 1.1;
     text-align: center;
-    text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
+    text-shadow: -0.1rem 0.1rem 0.2rem #4527a0;
 }
 
-.Input {
-    position: relative;
-}
-
-.Input-text {
+#destinationUrl {
     display: block;
     margin: 0;
-    padding: var(--inputPaddingV) var(--inputPaddingH);
-    color: inherit;
+    padding: 0.8rem 1.6rem;
     width: 100%;
     font-family: inherit;
-    font-size: var(--inputFontSize);
+    font-size: 2.1rem;
     font-weight: inherit;
-    line-height: var(--inputLineHeight);
+    line-height: 1.8;
     border: none;
     border-radius: 0.4rem;
-    transition: box-shadow var(--transitionDuration);
+    transition: box-shadow 300ms;
 }
 
-.Input-text::placeholder {
-    color: #b0bec5;
-}
-
-.Input-text:focus {
+#destinationUrl:focus {
     outline: none;
-    box-shadow: 0.2rem 0.8rem 1.6rem var(--colorPrimary600);
+    box-shadow: 0.2rem 0.8rem 1.6rem #5e35b1;
+}
+
+#btnShortUrl, #btnCopyUrl {
+    height:48px;
+    width: 100px;
+    font-size: 18px;
+}
+#btnShortUrl:hover, #btnCopyUrl:hover {
+    box-shadow: 0.2rem 0.8rem 1.6rem #5e35b1;
+}
+
+
+.long-and-truncated {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
