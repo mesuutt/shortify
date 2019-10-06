@@ -1,6 +1,6 @@
 # Shortify
 
-Yet another URL shortener written in elixir.
+Yet another URL shortener written in Elixir.
 
 ##### Running shortify locally
 
@@ -9,7 +9,7 @@ Yet another URL shortener written in elixir.
 - Run `iex -S mix` on command-line
 - Visit [http://localhost:4000](http://localhost:4000)
 
-<details><summary>Deploying with Docker</summary>
+<details><summary>Running with Docker</summary>
 <p>
 
 ##### Building image
