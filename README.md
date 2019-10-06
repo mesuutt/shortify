@@ -2,8 +2,14 @@
 
 Yet another URL shortener written in elixir.
 
+##### Running shortify locally
 
-<details><summary>Running Docker Container</summary>
+- Set `DATABASE_URL` environment variable with pool size
+> `postgres://username:password@db_host:5432/shortify_db?pool_size=10`
+- Run `iex -S mix` on command-line
+- Visit [http://localhost:4000](http://localhost:4000)
+
+<details><summary>Deploying with Docker</summary>
 <p>
 
 ##### Building image
