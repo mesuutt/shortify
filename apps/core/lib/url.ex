@@ -27,4 +27,8 @@ defmodule Core.URL do
   def get_by_hash(hash) do
     Repo.get_by(Core.URL, hash: "#{hash}")
   end
+
+  def get_by_destination(destination) do
+    Repo.get_by(Core.URL, destination: "#{destination}")
+  end
 end
