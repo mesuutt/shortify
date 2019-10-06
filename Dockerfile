@@ -27,8 +27,8 @@ RUN APP_NAME="shortify" && \
 FROM bitwalker/alpine-erlang:21.3.2 as deployment
 
 EXPOSE 4000
-ENV REPLACE_OS_VARS=true \
-    PORT=4000
+EXPOSE 4001
+ENV REPLACE_OS_VARS=true
 
 COPY --from=build /export/ .
 
